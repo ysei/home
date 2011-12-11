@@ -1,0 +1,12 @@
+dl
+moz
+pics
+
+.ssh/id_dsa
+.irssi/away.log
+
+.netrwhist
+*.swp
+*.swo
+.vim/tmp
+.bash_history
