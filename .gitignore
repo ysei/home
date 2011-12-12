@@ -10,3 +10,13 @@ pics
 *.swo
 .vim/tmp
 .bash_history
+.ICEauthority
+.Xauthority
+.config/chromium/
+.config/dconf/
+.config/gnome-*
+.config/goa-*
+.config/nautilus/
+.config/Thunar/
+.config/xfce4/
+.config/parcellite/
