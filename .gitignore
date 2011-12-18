@@ -1,22 +1,37 @@
-dl
-moz
-pics
+# Ignore everything
+*
 
-.ssh/id_dsa
+# except...
+
+!.bash_logout
+!.bashrc
+!.profile
+!.extra
+
+!.irssi
 .irssi/away.log
 
-.netrwhist
-*.swp
-*.swo
-.vim/tmp
-.bash_history
-.ICEauthority
-.Xauthority
-.config/chromium/
-.config/dconf/
-.config/gnome-*
-.config/goa-*
-.config/nautilus/
-.config/Thunar/
-.config/xfce4/
-.config/parcellite/
+!.ssh
+.ssh/id_dsa
+
+!.vim
+!.vimrc
+
+!.gitconfig
+!.gitignore
+!.gitignore_global
+!.hgignore
+!.hgrc
+
+!.pythonrc.py
+!.signature
+
+!.tmux.conf
+!.screenrc
+
+!.xinitrc
+!.xbindkeysrc
+!.Xresources
+!.fonts.conf
+
+!.config/awesome

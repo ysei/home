@@ -54,7 +54,6 @@ beautiful.init("/home/stas/.config/awesome/themes/zenburn/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "urxvt"
-terminal_login = "urxvt -e /bin/bash --login -i"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -236,7 +235,7 @@ globalkeys = awful.util.table.join(
             awful.client.focus.byidx(-1)
             if client.focus then client.focus:raise() end
         end),
-    awful.key({ modkey,           }, "w", function () mymainmenu:show({keygrabber=true}) end),
+    -- awful.key({ modkey,           }, "w", function () mymainmenu:show({keygrabber=true}) end),
 
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end),
@@ -253,8 +252,9 @@ globalkeys = awful.util.table.join(
         end),
 
     -- Standard program
-    awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal_login) end),
-    awful.key({                   }, "Print", function () awful.util.spawn("scrot -e 'mv $f ~/pics/screenshots/ 2>/dev/null'") end),
+    awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
+    awful.key({                   }, "Print", function () awful.util.spawn("scrot -e 'screenshot $f $n'") end),
+    awful.key({ "Shift"           }, "Print", function () awful.util.spawn("scrot -s -e 'screenshot $f $n'") end),
     awful.key({                   }, "XF86Display", function () awful.util.spawn("thinkpad-fn-f7") end),
     awful.key({                   }, "XF86ScreenSaver", function () awful.util.spawn("slimlock") end),
     awful.key({                   }, "XF86Sleep", function () awful.util.spawn("dbus-send --system --print-reply --dest='org.freedesktop.UPower' /org/freedesktop/UPower org.freedesktop.UPower.Suspend") end),
@@ -294,10 +294,10 @@ globalkeys = awful.util.table.join(
 
 clientkeys = awful.util.table.join(
     awful.key({ modkey,           }, "f",      function (c) c.fullscreen = not c.fullscreen  end),
-    awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end),
+    awful.key({ modkey,           }, "w",      function (c) c:kill()                         end),
     awful.key({ modkey, "Shift"   }, "f",      awful.client.floating.toggle                     ),
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end),
-    awful.key({ modkey,           }, "o",      awful.client.movetoscreen                        ),
+    awful.key({ modkey,           }, "q",      awful.client.movetoscreen                        ),
     awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end),
     awful.key({ modkey,           }, "n",
         function (c)
@@ -407,21 +407,22 @@ awful.rules.rules = {
                      opacity = 1,
                      buttons = clientbuttons },
       callback = awful.client.setslave },
-    { rule = { class = "MPlayer" },
-      properties = { floating = true } },
-    { rule = { class = "pinentry" },
-      properties = { floating = true } },
-    { rule = { class = "gimp" },
-      properties = { floating = true } },
-    { rule = { class = "feh" },
-      properties = { floating = true } },
-    { rule = { class = "Wicd-client.py" },
-      properties = { floating = true } },
+    { rule = { class = "MPlayer" }, properties = { floating = true } },
+    { rule = { class = "pinentry" }, properties = { floating = true } },
+    { rule = { class = "gimp" }, properties = { floating = true } },
+    { rule = { class = "feh" }, properties = { floating = true } },
+    { rule = { class = "Wicd-client.py" }, properties = { floating = true } },
+    { rule = { class = "Skype" }, properties = { floating = true } },
+    { rule = { class = "Linphone" }, properties = { floating = true } },
+    { rule = { class = "Pavucontrol" }, properties = { floating = true } },
     { rule = { class = "Plugin-container" },
       properties = { 
           floating = true,
           fullscreen = true } },
     { rule = { class = "Nightly", name = "Download" },
+      properties = { floating = true },
+      callback = awful.placement.centered },
+    { rule = { class = "Nightly", name = "Update" },
       properties = { floating = true },
       callback = awful.placement.centered },
 }

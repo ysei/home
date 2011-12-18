@@ -19,5 +19,14 @@ xset dpms 0 0 300
 thunar --daemon &
 devmon &
 
-exec awesome
-# exec gnome-session
+case $1 in
+    evilwm)
+        xbindkeys &
+        evilwm -term urxvt -snap 10 &
+        exec xclock -padding 2 -g -0+0 
+        ;;
+    gnome)
+        exec gnome-session ;;
+    *)
+        exec awesome ;;
+esac

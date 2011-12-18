@@ -113,16 +113,19 @@ vmap r "_dP
 
 " Directories *****************************************************************
 " Setup backup location and enable
-set backupdir=~/.bkp/vim
+set backupdir=~/.vimrt/bkp
 set backup
+set undodir=~/.vimrt/undo
 set undofile
 
 " Set Swap directory
-set directory=~/.bkp/vim/swap
+set directory=~/.vimrt/swap
 
 " Misc ************************************************************************
 set backspace=indent,eol,start
 set matchpairs+=<:>
+
+call pathogen#infect()
 
 " Functions *******************************************************************
 "
