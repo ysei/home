@@ -1,0 +1,9 @@
+"1.1 (created: 2011/11/13 17:32:11)
+
+map a :emenu<Space>Message.Archive<Return>
+map f :moveto<Space>
+map s :emenu<Space>Message.Mark.As<Space>Junk<Return>
+set "editor=urxvt -e vim"
+source! /home/stas/.muttatorrc.local
+
+" vim: set ft=muttator:
