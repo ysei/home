@@ -343,6 +343,14 @@ clientkeys = awful.util.table.join(
         else
             c:tags({screen[mouse.screen]:tags()[curidx + 1]})
         end
+    end),
+    awful.key({ modkey,           }, "e", function (c)
+        local curidx = awful.tag.getidx(c:tags()[1])
+        if curidx == 9 then
+            c:tags({screen[mouse.screen]:tags()[1]})
+        else
+            c:tags({screen[mouse.screen]:tags()[curidx + 1]})
+        end
     end)
 
 )
