@@ -40,6 +40,7 @@ channels = (
   { name = "#mozillians"; chatnet = "mozilla"; autojoin = "Yes"; },
   { name = "#affiliates"; chatnet = "mozilla"; autojoin = "Yes"; },
   { name = "#yourweb"; chatnet = "mozilla"; autojoin = "Yes"; },
+  { name = "#webgagement"; chatnet = "mozilla"; autojoin = "Yes"; },
 
   { name = "#frenchmoz"; chatnet = "mozilla"; autojoin = "Yes"; },
   { name = "#europe"; chatnet = "mozilla"; autojoin = "Yes"; },
@@ -48,10 +49,6 @@ channels = (
 
   { name = "#elmo"; chatnet = "mozilla"; autojoin = "Yes"; },
   { name = "#l20n"; chatnet = "mozilla"; autojoin = "Yes"; },
-  { name = "#webdev"; chatnet = "mozilla"; autojoin = "Yes"; },
-  { name = "#verbatim"; chatnet = "mozilla"; autojoin = "Yes"; },
-  { name = "#webgagement"; chatnet = "mozilla"; autojoin = "Yes"; },
-  { name = "#mobile"; chatnet = "mozilla"; autojoin = "Yes"; },
 
   { name = "#starcraft"; chatnet = "mozilla"; autojoin = "Yes"; },
   { name = "#minecraft"; chatnet = "mozilla"; autojoin = "Yes"; },
@@ -59,6 +56,9 @@ channels = (
 
   { name = "#planning"; chatnet = "mozilla"; autojoin = "Yes"; },
   { name = "#bmo"; chatnet = "mozilla"; autojoin = "Yes"; },
+  { name = "#webdev"; chatnet = "mozilla"; autojoin = "Yes"; },
+  { name = "#verbatim"; chatnet = "mozilla"; autojoin = "Yes"; },
+  { name = "#mobile"; chatnet = "mozilla"; autojoin = "Yes"; }
 );
 
 aliases = {
@@ -219,13 +219,6 @@ statusbar = {
         barend = { priority = "100"; alignment = "right"; };
       };
     };
-    awl_1 = {
-      items = {
-        barstart = { priority = "100"; };
-        awl_1 = { };
-        barend = { priority = "100"; alignment = "right"; };
-      };
-    };
   };
 };
 settings = {
@@ -291,7 +284,7 @@ windows = {
         chat_type = "IRC";
         name = "#l10n-drivers";
         tag = "mozilla";
-      },
+      }
     );
   };
   3 = {
@@ -302,7 +295,7 @@ windows = {
         chat_type = "IRC";
         name = "#l10n";
         tag = "mozilla";
-      },
+      }
     );
   };
   4 = {
@@ -325,12 +318,18 @@ windows = {
         chat_type = "IRC";
         name = "#mozilla.pl";
         tag = "mozilla";
-      },
+      }
     );
   };
   5 = {
-    name = "current";
+    name = "engage";
     items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#webgagement";
+        tag = "mozilla";
+      },
       {
         type = "CHANNEL";
         chat_type = "IRC";
@@ -348,7 +347,7 @@ windows = {
         chat_type = "IRC";
         name = "#yourweb";
         tag = "mozilla";
-      },
+      }
     );
   };
   6 = {
@@ -377,18 +376,12 @@ windows = {
         chat_type = "IRC";
         name = "#mozilla.in";
         tag = "mozilla";
-      },
+      }
     );
   };
   7 = {
-    name = "idle";
+    name = "l20n";
     items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#elmo";
-        tag = "mozilla";
-      },
       {
         type = "CHANNEL";
         chat_type = "IRC";
@@ -398,27 +391,9 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#webdev";
+        name = "#elmo";
         tag = "mozilla";
-      },
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#verbatim";
-        tag = "mozilla";
-      },
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#webgagement";
-        tag = "mozilla";
-      },
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#mobile";
-        tag = "mozilla";
-      },
+      }
     );
   };
   8 = {
@@ -441,11 +416,11 @@ windows = {
         chat_type = "IRC";
         name = "#games";
         tag = "mozilla";
-      },
+      }
     );
   };
   9 = {
-    name = "firehose";
+    name = "idle";
     items = (
       {
         type = "CHANNEL";
@@ -459,6 +434,24 @@ windows = {
         name = "#bmo";
         tag = "mozilla";
       },
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#webdev";
+        tag = "mozilla";
+      },
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#verbatim";
+        tag = "mozilla";
+      },
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#mobile";
+        tag = "mozilla";
+      }
     );
   };
   10 = { name = "hilight"; sticky = "yes"; };
@@ -469,7 +462,7 @@ windows = {
         chat_type = "IRC";
         name = "gandalf";
         tag = "mozilla";
-      },
+      }
     );
   };
 };
