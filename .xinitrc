@@ -13,6 +13,7 @@ fi
 
 xrdb -merge ~/.Xresources
 setxkbmap -layout pl -option ctrl:nocaps
+xset b off # no bell
 xset +dpms
 xset dpms 0 0 300
 

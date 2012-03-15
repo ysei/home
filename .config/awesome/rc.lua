@@ -19,6 +19,7 @@ require("obvious.volume_alsa")
 
 run_once("xcompmgr -cF &")
 run_once("parcellite -nd")
+run_once("nm-applet --sm-disable &")
 
 -- }}}
 
@@ -53,7 +54,7 @@ end
 beautiful.init("/home/stas/.config/awesome/themes/zenburn/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "urxvt"
+terminal = "urxvtcd"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -160,6 +161,7 @@ mytasklist.buttons = awful.util.table.join(
 
 obvious.clock.set_editor("urxvt -e vim")
 obvious.clock.set_shortformat("%a (%d) %H:%M")
+obvious.clock.set_longformat("%a (%d) %H:%M")
 myclock = obvious.clock()
 
 mybattery = obvious.battery()
@@ -261,6 +263,7 @@ globalkeys = awful.util.table.join(
     awful.key({                   }, "XF86AudioRaiseVolume", function () awful.util.spawn("amixer set Master 9%+") end),
     awful.key({                   }, "XF86AudioLowerVolume", function () awful.util.spawn("amixer set Master 9%-") end),
     awful.key({                   }, "XF86AudioMute", function () awful.util.spawn("amixer sset Master toggle") end),
+    awful.key({                   }, "XF86Launch1", function () awful.util.spawn("pkill plugin") end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit),
 
@@ -423,6 +426,7 @@ awful.rules.rules = {
     { rule = { class = "Skype" }, properties = { floating = true } },
     { rule = { class = "Linphone" }, properties = { floating = true } },
     { rule = { class = "Pavucontrol" }, properties = { floating = true } },
+    { rule = { class = "Gtk-recordMyDesktop" }, properties = { floating = true } },
     { rule = { class = "Plugin-container" },
       properties = { 
           floating = true,

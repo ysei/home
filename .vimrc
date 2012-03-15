@@ -6,6 +6,7 @@ set t_Co=256 " 256 colors
 set background=dark
 colorscheme wombat256
 let g:molokai_original = 0
+set laststatus=2 " Always show the statusline
 if has("gui_running")
     set guifont=Menlo:h12
     set go-=T
@@ -177,6 +178,27 @@ function! Toggle_fullscreen()
 endfunction
 nnoremap <leader>fu :call Toggle_fullscreen()<CR>
 
+""" FocusMode
+function! ToggleFocusMode()
+    if (&foldcolumn != 12)
+        set laststatus=0
+        set numberwidth=10
+        set foldcolumn=12
+        set noruler
+        hi FoldColumn ctermbg=none
+        hi LineNr ctermfg=0 ctermbg=none
+        hi NonText ctermfg=0
+    else
+        set laststatus=2
+        set numberwidth=4
+        set foldcolumn=0
+        set ruler
+        execute 'colorscheme ' . g:colors_name
+    endif
+endfunc
+nnoremap <F1> :call ToggleFocusMode()<cr>
+
+
 " Crontab doesn't like the way Vim does backups *******************************
 if $VIM_CRONTAB == "true"
     set nobackup
@@ -186,3 +208,7 @@ endif
 " Filetype-specific ***********************************************************
 au BufRead sup.* set ft=mail
 au BufRead sup.* call Toggle_text_editing()
+au BufRead *.markdown call Toggle_text_editing()
+au BufRead *.markdown setl autoindent
+au FileType javascript setl ts=2 et sts=2 sw=2
+au FileType html setl ts=2 et sts=2 sw=2

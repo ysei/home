@@ -6,7 +6,9 @@ Xft.rgba:       rgb
 
 ! General
 !urxvt*termName:  rxvt-256color
+urxvt*termName:  rxvt-unicode
 urxvt*loginShell:         true
+!URxvt*buffered:         false
 
 !  - rxvt, plain, next, xterm
 URxvt.scrollstyle:      plain
@@ -20,6 +22,9 @@ urxvt*urgentOnBell:       true
 !urxvt*borderLess:       false
 !urxvt*internalBorder:       0
 !urxvt*externalBorder:       0
+
+URxvt.mapAlert:         true
+!URxvt.visualBell:       true
 
 ! Extensions
 urxvt*perl-lib:        /usr/lib/urxvt/perl/
@@ -38,7 +43,6 @@ URxvt.underlineURLs: true
 !urxvt*font:        -xos4-terminus-medium-*-*-*-12-*-*-*-*-*-*-*
 !urxvt*boldFont:    -xos4-terminus-bold-*-*-*-12-*-*-*-*-*-*-*
 !  - use xft for drawing fonts
-!urxvt*font:       xft:Terminus:8
 URxvt.font: xft:Monaco:size=8
 
 
