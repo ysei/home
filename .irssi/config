@@ -9,6 +9,7 @@ chatnets = {
     nick = "sta";
     autosendcmd = "/script exec $ENV{'TZ'}='CET'";
   };
+  quakenet = { type = "IRC"; };
 };
 
 servers = (
@@ -23,6 +24,12 @@ servers = (
   {
     address = "irc.freenode.net";
     chatnet = "freenode";
+    port = "6667";
+    autoconnect = "no";
+  },
+  {
+    address = "irc.quakenet.org";
+    chatnet = "quakenet";
     port = "6667";
     autoconnect = "no";
   }
@@ -216,6 +223,13 @@ statusbar = {
       items = {
         barstart = { priority = "100"; };
         awl_0 = { };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+    };
+    awl_1 = {
+      items = {
+        barstart = { priority = "100"; };
+        awl_1 = { };
         barend = { priority = "100"; alignment = "right"; };
       };
     };
