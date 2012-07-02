@@ -196,7 +196,7 @@ function! ToggleFocusMode()
         execute 'colorscheme ' . g:colors_name
     endif
 endfunc
-nnoremap <F1> :call ToggleFocusMode()<cr>
+nnoremap <F4> :call ToggleFocusMode()<cr>
 
 
 " Crontab doesn't like the way Vim does backups *******************************
